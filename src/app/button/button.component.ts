@@ -29,7 +29,7 @@ export class ButtonComponent implements OnChanges, OnInit, OnDestroy {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        console.log('ngOnChanges:' + changes);
+        console.log('ngOnChanges:', changes);
     }
 
     handleClick(event) {
