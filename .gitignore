@@ -1,0 +1,12 @@
+
+.DS_Store
+
+.editorconfig
+
+*.xml
+
+.idea/angular-elements.iml
+
+node_modules/
+
+dist/
