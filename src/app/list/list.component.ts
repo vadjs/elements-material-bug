@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'custom-list',
@@ -6,17 +6,21 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./list.component.css'],
   encapsulation: ViewEncapsulation.Native
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnChanges, OnDestroy {
   @Input() persons = [];
 
   constructor() { }
 
   ngOnInit() {
-    console.log('NgOnInit: List Component created');
+    console.log('ngOnInit: List Component created.');
   }
 
   ngOnChanges(changes) {
-    console.log(changes);
+    console.log('ngOnChanges: List Component', changes);
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestry: List Component destroyed.');
   }
 
 }

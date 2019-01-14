@@ -12,7 +12,11 @@ export class AddPersonComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('ngOnInit()" Add Person Component created');
+    console.log('ngOnInit: Add Person Component created.');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy: Add Person Component destroyed.');
   }
 
   getPersons(ev) {

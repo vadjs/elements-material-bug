@@ -11,6 +11,8 @@ import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, S
           padding: 8px 10px;
           background: #bada55;
           font-size: 20px;
+          font-family: monospace;
+          cursor: pointer;
       }`
   ],
     encapsulation: ViewEncapsulation.Native
@@ -20,28 +22,28 @@ export class ButtonComponent implements OnChanges, OnInit, OnDestroy {
     @Input() label = 'Add Person';
     @Output() action = new EventEmitter<Array<String>>();
 
-    private numberOfClicks = 0;
+    private personId = 0;
     private persons = [];
 
     constructor() { }
 
     ngOnInit() {
-        console.log('ngOnInit: Button Component created');
+        console.log('ngOnInit: Button Component created.');
     }
 
     ngOnChanges(changes: SimpleChanges) {
         console.log('ngOnChanges:', changes);
     }
 
-    addPerson(event) {
-        console.log('handleClick() function called');
-        this.numberOfClicks++;
-        this.persons.push('Person ' + this.numberOfClicks);
-        this.action.emit(this.persons);
+    ngOnDestroy() {
+        console.log('ngOnDestroy called.');
     }
 
-    ngOnDestroy() {
-        console.log('ngOnDestroy called');
+    addPerson(event) {
+      console.log('handleClick() function called.');
+      this.personId++;
+      this.persons.push('Person ' + this.personId);
+      this.action.emit(this.persons);
     }
 }
 

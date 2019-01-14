@@ -1,0 +1,11 @@
+.list {
+    border: solid 3px;
+    padding: 8px 20px;
+    background: #bada55;
+    list-style: square;
+    font-family: monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: fantasy;
+}

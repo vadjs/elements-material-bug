@@ -1,4 +1,6 @@
-<h3>List of persons</h3>
-<div>
-  <p *ngFor="let person of persons">{{person}}</p>
+<div *ngIf="persons.length">
+  <h3>List of persons</h3>
+  <ul class="list">
+    <li *ngFor="let person of persons">{{person}}</li>
+  </ul>
 </div>
