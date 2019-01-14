@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, S
 @Component({
     selector: 'custom-button',
     template: `
-    <button (click)="handleClick($event)">{{ label }}</button>
+    <button (click)="addPerson($event)">{{ label }}</button>
   `,
   styles: [`
       button {
@@ -17,25 +17,27 @@ import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, S
 })
 export class ButtonComponent implements OnChanges, OnInit, OnDestroy {
 
-    @Input() label = '';
-    @Output() action = new EventEmitter<number>();
+    @Input() label = 'Add Person';
+    @Output() action = new EventEmitter<Array<String>>();
 
     private numberOfClicks = 0;
+    private persons = [];
 
     constructor() { }
 
     ngOnInit() {
-        console.log('ngOnInit');
+        console.log('ngOnInit: Button Component created');
     }
 
     ngOnChanges(changes: SimpleChanges) {
         console.log('ngOnChanges:', changes);
     }
 
-    handleClick(event) {
+    addPerson(event) {
         console.log('handleClick() function called');
         this.numberOfClicks++;
-        this.action.emit(this.numberOfClicks);
+        this.persons.push('Person ' + this.numberOfClicks);
+        this.action.emit(this.persons);
     }
 
     ngOnDestroy() {

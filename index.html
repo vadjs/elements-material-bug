@@ -6,16 +6,6 @@
   <script src="custom-button-element.js"></script>
 </head>
 <body>
-  <custom-button label="My label"></custom-button>
-
-  <script>
-    const button = document.querySelector('custom-button');
-    button.addEventListener('action', (event) => {
-      // console.log(event);
-      console.log(`"action" emitted: ${event.detail}`);
-    });
-
-    setTimeout(() => button.label = 'Second Label', 3000);
-  </script>
+  <custom-add-person></custom-add-person>
 </body>
 </html>

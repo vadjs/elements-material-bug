@@ -10,3 +10,4 @@
 node_modules/
 
 dist/
+custom-button-element.js
