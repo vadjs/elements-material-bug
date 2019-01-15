@@ -22,22 +22,23 @@ import { ElementZoneStrategyFactory } from 'elements-zone-strategy'; // workarou
     imports: [
         BrowserModule
     ],
-    entryComponents: [AddPersonComponent, ButtonComponent, ListComponent], // so they don't get dropped when tree-shaking
+    entryComponents: [AddPersonComponent], // so they don't get dropped when tree-shaking
     providers: [],
-    // bootstrap: [AddPersonComponent] // uncomment to run locally
+    // bootstrap: [AddPersonComponent] // this is no longer needed as we're manually bootstrapping with ngDoBootstrap
 })
 export class AppModule {
     constructor(private injector: Injector) { }
 
     ngDoBootstrap() {
 
-      // CHANGE DETECTION BUG:
+      // CHANGE DETECTION BUG: use ElementZoneStrategyFactory to fix it as a temporary solution
       // https://github.com/angular/angular/issues/24732
       // https://www.npmjs.com/package/elements-zone-strategy
       const strategyFactory = new ElementZoneStrategyFactory(AddPersonComponent, this.injector); // workaround
+
+      // const customElement = createCustomElement(AddPersonComponent, {injector: this.injector}); // without workaround
       const customElement = createCustomElement(AddPersonComponent, { injector: this.injector, strategyFactory }); // workaround
 
-      // const customElement = createCustomElement(AddPersonComponent, {injector: this.injector});
       customElements.define('custom-add-person', customElement);
     }
 }

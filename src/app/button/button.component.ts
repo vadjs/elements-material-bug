@@ -15,7 +15,7 @@ import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, S
           cursor: pointer;
       }`
   ],
-    encapsulation: ViewEncapsulation.Native
+    encapsulation: ViewEncapsulation.ShadowDom
 })
 export class ButtonComponent implements OnChanges, OnInit, OnDestroy {
 

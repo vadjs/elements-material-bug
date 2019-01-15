@@ -4,7 +4,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   selector: 'custom-add-person',
   templateUrl: './add-person.component.html',
   styleUrls: ['./add-person.component.css'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class AddPersonComponent implements OnInit {
   public persons = [];

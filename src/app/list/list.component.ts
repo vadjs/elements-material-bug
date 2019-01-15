@@ -4,7 +4,7 @@ import { Component, Input, OnChanges, OnDestroy, OnInit, ViewEncapsulation } fro
   selector: 'custom-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
-  encapsulation: ViewEncapsulation.Native
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class ListComponent implements OnInit, OnChanges, OnDestroy {
   @Input() persons = [];
