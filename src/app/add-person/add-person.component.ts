@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { PersonService } from '../person.service';
 
 @Component({
   selector: 'custom-add-person',
@@ -8,8 +9,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class AddPersonComponent implements OnInit {
   public persons = [];
+  private _title;
 
-  constructor() { }
+  constructor(personService: PersonService) {
+    this.title = personService.getTitle();
+  }
 
   ngOnInit() {
     console.log('ngOnInit: Add Person Component created.');
@@ -22,6 +26,14 @@ export class AddPersonComponent implements OnInit {
   getPersons(ev) {
     console.log(ev);
     this.persons = ev;
+  }
+
+  get title() {
+    return this._title;
+  }
+
+  set title(val) {
+    this._title = val;
   }
 
 }
