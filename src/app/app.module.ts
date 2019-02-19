@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 import { ButtonComponent } from './button/button.component';
 import { ListComponent } from './list/list.component';
 import { AddPersonComponent } from './add-person/add-person.component';
-import { ElementZoneStrategyFactory } from 'elements-zone-strategy'; // workaround, fixes https://www.npmjs.com/package/elements-zone-strategy
-
+import { ElementZoneStrategyFactory } from 'elements-zone-strategy';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // workaround, fixes https://www.npmjs.com/package/elements-zone-strategy
+import { MatButtonModule } from '@angular/material/button';
 
 
 /**
@@ -20,7 +21,9 @@ import { ElementZoneStrategyFactory } from 'elements-zone-strategy'; // workarou
         AddPersonComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatButtonModule
     ],
     entryComponents: [AddPersonComponent], // so they don't get dropped when tree-shaking
     providers: [],
